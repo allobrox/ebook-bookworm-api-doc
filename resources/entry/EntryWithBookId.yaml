@@ -1,0 +1,37 @@
+get:
+  description: Get entries by bookId
+  tags:
+    - entry
+  parameters:
+    - in: query
+      name: bookId
+      required: true
+      schema:
+        type: string
+        example: b_11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
+    - in: header
+      name: x-auth
+      required: true
+      description: Authorization token
+      schema:
+        type: string
+        example: eyJhbGciOiJ.eyJsb2dnZWRJbkFz.gzSraSYS8EXB
+  responses:
+    '200':
+      description: Entries found
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/response/GetEntriesByBookIdResponse.yaml'
+    '400':
+      description: Requirement missing
+    '401':
+      description: User authentication failed
+    '403':
+      description: User has no right to get entries for this bookId
+    '404':
+      description: Required parameter or header missing
+    '500':
+      description: The server encountered an unexpected error, inform the user to repeat the operation later.

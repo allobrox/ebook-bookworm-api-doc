@@ -1,0 +1,6 @@
+type: string
+enum:
+  - toRead
+  - reading
+  - finished
+example: 'reading'

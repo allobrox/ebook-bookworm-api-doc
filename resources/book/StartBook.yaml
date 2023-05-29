@@ -1,0 +1,33 @@
+put:
+  description: Start reading book with the given bookId.
+  tags:
+    - book
+  parameters:
+    - in: path
+      name: bookId
+      required: true
+      schema:
+        type: string
+        example: b_11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
+    - in: header
+      name: x-auth
+      required: true
+      description: Authorization token
+      schema:
+        type: string
+        example: eyJhbGciOiJ.eyJsb2dnZWRJbkFz.gzSraSYS8EXB
+  responses:
+    '200':
+      description: Book reading successfully started!
+    '400':
+      description: Required parameter or header missing
+    '401':
+      description: User authentication failed
+    '403':
+      description: User has no right to modify this entity
+    '404':
+      description: Book with the given bookId not exists
+    '409':
+      description: Book reading is already started!
+    '500':
+      description: The server encountered an unexpected error, inform the user to repeat the operation later

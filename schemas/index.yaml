@@ -1,0 +1,40 @@
+BookDto:
+  $ref: './BookDto.yaml'
+BookStatus:
+  $ref: "./BookStatus.yaml"
+EntryDto:
+  $ref: "./EntryDto.yaml"
+
+#request
+CreateBookRequest:
+  $ref: "./request/CreateBookRequest.yaml"
+CreateEntryRequest:
+  $ref: "./request/CreateEntryRequest.yaml"
+LoginUserRequest:
+  $ref: "./request/LoginUserRequest.yaml"
+ModifyEntryRequest:
+  $ref: "./request/ModifyEntryRequest.yaml"
+ModifyPasswordRequest:
+  $ref: "./request/ModifyPasswordRequest.yaml"
+ModifyPasswordOtpRequest:
+  $ref: "./request/ModifyPasswordOtpRequest.yaml"
+RegisterUserRequest:
+  $ref: "./request/RegisterUserRequest.yaml"
+ResetPasswordRequest:
+  $ref: "./request/ResetPasswordRequest.yaml"
+UpdateBookRequest:
+  $ref: "./request/UpdateBookRequest.yaml"
+
+#response
+CreateBookResponse:
+  $ref: "./response/CreateBookResponse.yaml"
+CreateEntryResponse:
+  $ref: "./response/CreateEntryResponse.yaml"
+GetBookByIdResponse:
+  $ref: "./response/GetBookByIdResponse.yaml"
+GetBooksByStatusResponse:
+  $ref: "./response/GetBooksByStatusResponse.yaml"
+GetEntriesByBookIdResponse:
+  $ref: "./response/GetEntriesByBookIdResponse.yaml"
+GetEntryResponse:
+  $ref: './response/GetEntryResponse.yaml'

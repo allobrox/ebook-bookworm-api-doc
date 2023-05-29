@@ -1,0 +1,23 @@
+type: object
+required:
+  - id
+  - pagesRead
+  - percentage
+  - readAt
+properties:
+  id:
+    type: string
+    example: e_71cdf9da-2eef-4ede-a53a-7419f67c0a3d
+  pagesRead:
+    type: integer
+    minimum: 0
+    example: 258
+  percentage:
+    type: integer
+    minimum: 0
+    maximum: 100
+    example: 37
+  readAt:
+    type: integer
+    format: int64
+    example: 1665651085126

@@ -1,0 +1,70 @@
+post:
+  description: Creates new entry. If entryId is present, server attempts to create entity with it. If not, a new id will be generated.
+  tags:
+    - entry
+  parameters:
+    - in: header
+      name: x-auth
+      required: true
+      description: Authorization token
+      schema:
+        type: string
+        example: eyJhbGciOiJ.eyJsb2dnZWRJbkFz.gzSraSYS8EXB
+  requestBody:
+    description: Entry to be saved
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/request/CreateEntryRequest.yaml'
+  responses:
+    '201':
+      description: Entry successfully created!
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/response/CreateEntryResponse.yaml'
+    '400':
+      description: Required body field or header missing
+    '401':
+      description: User authentication failed
+    '403':
+      description: User has no right to this book.
+    '404':
+      description: Book not found
+    '409':
+      description: EntryId already exists!
+    '500':
+      description: The server encountered an unexpected error, inform the user to repeat the operation later.
+put:
+  description: Modifies entry.
+  tags:
+    - entry
+  parameters:
+    - in: header
+      name: x-auth
+      required: true
+      description: Authorization token
+      schema:
+        type: string
+        example: eyJhbGciOiJ.eyJsb2dnZWRJbkFz.gzSraSYS8EXB
+  requestBody:
+    description: Entry to be saved
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/request/ModifyEntryRequest.yaml'
+  responses:
+    '200':
+      description: Entry successfully modified.
+    '400':
+      description: Required parameter or header missing
+    '401':
+      description: User authentication failed
+    '403':
+      description: User has no right to this entry.
+    '404':
+      description: Entry not found
+    '500':
+      description: The server encountered an unexpected error, inform the user to repeat the operation later.

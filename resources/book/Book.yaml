@@ -1,0 +1,76 @@
+post:
+  description: Creates new book. If bookId is present, server attempts to create book with it. If not, a new id will be generated.
+  tags:
+    - book
+  parameters:
+    - in: header
+      name: x-auth
+      required: true
+      description: Authorization token
+      schema:
+        type: string
+        example: eyJhbGciOiJ.eyJsb2dnZWRJbkFz.gzSraSYS8EXB
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/request/CreateBookRequest.yaml'
+  responses:
+    '201':
+      description: Book successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/response/CreateBookResponse.yaml'
+    '400':
+      description: Required body field or header missing
+      headers:
+        x-missing:
+          description: Comma separated requirements that are missing
+          schema:
+            type: string
+            example: f_author,f_title,h_x-auth
+    '401':
+      description: User authentication failed
+    '409':
+      description: Entity already exists
+      headers:
+        x-message:
+          description: Use PUT method to modify!
+          schema:
+            type: string
+    '500':
+      description: The server encountered an unexpected error, inform the user to repeat the operation later.
+put:
+  description: Modify book specified in body. Only allowed fields will be modified.
+  tags:
+    - book
+  parameters:
+    - in: header
+      name: x-auth
+      required: true
+      description: Authorization token
+      schema:
+        type: string
+        example: eyJhbGciOiJ.eyJsb2dnZWRJbkFz.gzSraSYS8EXB
+  requestBody:
+    description: Book to be modified
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/request/UpdateBookRequest.yaml'
+  responses:
+    '200':
+      description: Book successfully modified
+    '400':
+      description: Required body field or header missing
+    '401':
+      description: User authentication failed
+    '403':
+      description: User has no right to modify this entity
+    '404':
+      description: Book with the given bookId not found.
+    '500':
+      description: The server encountered an unexpected error, inform the user to repeat the operation later.

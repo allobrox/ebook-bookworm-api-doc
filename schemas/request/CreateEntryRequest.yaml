@@ -1,0 +1,19 @@
+type: object
+required:
+  - bookId
+  - pagesRead
+properties:
+  bookId:
+    type: string
+    example: b_11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
+  entryId:
+    type: string
+    example: e_71cdf9da-2eef-4ede-a53a-7419f67c0a3d
+  pagesRead:
+    type: integer
+    minimum: 0
+    example: 258
+  readAt:
+    type: integer
+    format: int64
+    example: 1665651085126

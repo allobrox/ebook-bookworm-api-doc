@@ -1,0 +1,28 @@
+post:
+  description: Authenticates user
+  tags:
+    - auth
+  requestBody:
+    description: User information required for authentication
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/request/LoginUserRequest.yaml'
+  responses:
+    '200':
+      description: User successfully authenticated
+      headers:
+        x-auth:
+          description: Authorization token
+          schema:
+            type: string
+            example: eyJhbGciOiJ.eyJsb2dnZWRJbkFz.gzSraSYS8EXB
+    '400':
+      description: Required body field or header missing
+    '401':
+      description:
+        Incorrect authentication information
+    '500':
+      description:
+        The server encountered an unexpected error, inform the user to repeat registration later.

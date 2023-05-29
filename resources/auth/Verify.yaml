@@ -1,0 +1,18 @@
+get:
+  description: Verify email address
+  tags:
+    - auth
+  parameters:
+    - in: path
+      name: email
+      required: true
+      schema:
+        type: string
+        example: user@example.com
+  responses:
+    '200':
+      description: Email verified!
+    '404':
+      description: Email not valid!
+    '500':
+      description: The server encountered an unexpected error, inform the user to repeat the operation later

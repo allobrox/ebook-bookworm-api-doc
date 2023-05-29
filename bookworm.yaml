@@ -1,0 +1,39 @@
+openapi: 3.0.2
+info:
+  title: bookworm
+  description: Documentation of bookworm HTTP API
+  version: 0.0.1-SNAPSHOT
+servers:
+  - url: https://mthw.dev/bkwrm/api/v1
+paths:
+  /auth/login:
+    $ref: "resources/auth/Login.yaml"
+  /auth/password/modify:
+    $ref: "resources/auth/ModifyPassword.yaml"
+  /auth/password/modify/otp:
+    $ref: "resources/auth/ModifyPasswordOtp.yaml"
+  /auth/refresh:
+    $ref: 'resources/auth/Refresh.yaml'
+  /auth/password/reset:
+    $ref: "resources/auth/ResetPassword.yaml"
+  /auth/register:
+    $ref: "resources/auth/Register.yaml"
+  /auth/verify/{email}:
+    $ref: "resources/auth/Verify.yaml"
+  /book:
+    $ref: "resources/book/Book.yaml"
+  /book/start/{bookId}:
+    $ref: "resources/book/StartBook.yaml"
+  /book/bookId/{bookId}:
+    $ref: "resources/book/BookWithId.yaml"
+  /book/status/{status}:
+    $ref: "resources/book/BookWithStatus.yaml"
+  /entry:
+    $ref: "resources/entry/Entry.yaml"
+  /entry/bookId/{bookId}:
+    $ref: "resources/entry/EntryWithBookId.yaml"
+  /entry/entryId/{entryId}:
+    $ref: "resources/entry/EntryWithId.yaml"
+components:
+  schemas:
+    $ref: "./schemas/index.yaml"

@@ -1,0 +1,27 @@
+post:
+  description: Creates new user and sends confirmation email
+  tags:
+    - auth
+  requestBody:
+    description: New user to be registered
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/request/RegisterUserRequest.yaml'
+  responses:
+    '201':
+      description: User successfully created
+      headers:
+        x-auth:
+          description: Authorization token
+          schema:
+            type: string
+            example: eyJhbGciOiJ.eyJsb2dnZWRJbkFz.gzSraSYS8EXB
+    '400':
+      description: Required body field or header missing
+    '409':
+      description: User already exists
+    '500':
+      description:
+        The server encountered an unexpected error, inform the user to repeat registration later.

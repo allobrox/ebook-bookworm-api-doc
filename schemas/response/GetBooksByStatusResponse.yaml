@@ -1,0 +1,8 @@
+type: object
+required:
+  - books
+properties:
+  books:
+    type: array
+    items:
+      $ref: '../BookDto.yaml'

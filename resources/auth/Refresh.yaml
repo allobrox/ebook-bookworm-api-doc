@@ -1,0 +1,17 @@
+post:
+  description: Refreshes user token
+  tags:
+    - auth
+  responses:
+    '200':
+      description: Token refreshed!
+      headers:
+        x-auth:
+          description: Authorization token
+          schema:
+            type: string
+            example: eyJhbGciOiJ.eyJsb2dnZWRJbkFz.gzSraSYS8EXB
+    '401':
+      description: Refresh token expired! Log in user!
+    '500':
+      description: The server encountered an unexpected error, inform the user to repeat the operation later

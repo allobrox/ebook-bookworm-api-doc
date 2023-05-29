@@ -1,0 +1,24 @@
+type: object
+required:
+  - author
+  - id
+  - isbn
+  - pages
+  - title
+properties:
+  author:
+    type: string
+    example: James Swallow
+  id:
+    type: string
+    example: b_11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
+  isbn:
+    type: string
+    example: 978-3-16-148410-0
+  pages:
+    type: integer
+    minimum: 1
+    example: 258
+  title:
+    type: string
+    example: Nemesis
